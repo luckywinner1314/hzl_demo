@@ -1,47 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
-    int a[5]={3,3,3,4,5};
-    vector<int> nums(a,a+5);
-    bool ans=false;
-    void dfs(vector<int>& nums,int id,int target)
-    {
-        if(target<0||ans==true) return;
-        if(target==0)
+
+int main()
+{
+    string S="y#fo##f";
+    string T="y#f#o##f";
+
+    for(int i=0;i<S.size();i++){
+        if(S[i]=='#')
         {
-            ans=true;
-            return;
+            if(i==0) {S.erase(i,1);i--;}
+            else{
+                S.erase(i-1,2);
+                i=i-2;
+            }
+            
         }
-        for(int i=id;i<nums.size();i++)
-        {
-            if(ans==true) break;
-            if(target-nums[i]>=0)
-            {
-                cout<<target<<"  "<<target-nums[i]<<"  "<<i<<endl;
-                dfs(nums,i+1,target-nums[i]);
+        cout<<S<<"******"<<i<<endl;
+    }
+    for(int i=0;i<T.size();i++){
+        if(T[i]=='#'){
+            if(i==0) {
+                T.erase(i,1);
+                i=i-1;;
+            }
+            else{
+                T.erase(i-1,2);
+                i=i-2;
             }
         }
-        return;
+        cout<<T<<"&&&&&&&"<<i<<endl;
     }
-    bool canPartition(vector<int>& nums) {
-        int sum=0,sum_half;
-        sort(nums.begin(),nums.end());
-        for(int i=0;i<nums.size();i++)
-        {
-            sum+=nums[i];
-            cout<<sum<<endl;
-        }
-        sum_half=sum/2;
-        cout<<"half:"<<sum_half<<endl;
-        if(sum%2!=0||sum_half<nums[nums.size()-1]) return false;
-        cout<<"half:"<<sum_half<<endl;
-        if(nums[nums.size()-1]==sum_half) return true;
-        dfs(nums,0,sum_half);
-        return ans;
-    }
+    cout<<T<<endl<<S<<endl;
 
-    int main()
-    {
-        cout<<(bool)canPartition(nums);
-        system("pause");
-        return 0;
-    }
+
+
+    system("pause");
+    return 0;
+}
