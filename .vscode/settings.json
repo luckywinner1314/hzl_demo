@@ -60,7 +60,10 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "charconv": "cpp",
+        "string_view": "cpp",
+        "random": "cpp"
     },
     "files.autoSave": "onWindowChange",
     "files.autoSaveDelay": 20,
