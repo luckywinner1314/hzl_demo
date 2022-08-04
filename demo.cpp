@@ -21,6 +21,7 @@ public:
             }
             ans.emplace_back(check);
         }
+        cout<<"test"<<endl;
         return ans;
     }
 };
